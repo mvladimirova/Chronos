@@ -1,0 +1,28 @@
+{
+  "name": "Victoria",
+  "version": "0.0.0",
+  "description": "awesome sports event manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BKaraargirov/Victoria"
+  },
+  "keywords": [
+    "sports",
+    "js",
+    "event",
+    "victoria"
+  ],
+  "author": "BK",
+  "license": "GNUv2",
+  "bugs": {
+    "url": "https://github.com/BKaraargirov/Victoria/issues"
+  },
+  "homepage": "https://github.com/BKaraargirov/Victoria",
+  "dependencies": {
+    "mongoose": "^3.8.19"
+  }
+}
