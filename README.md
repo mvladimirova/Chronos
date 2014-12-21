@@ -1,4 +1,4 @@
-Victoria
+Chronos
 ========
 
-Sporting events planner
+Server based events planner
