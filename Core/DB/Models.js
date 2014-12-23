@@ -10,5 +10,12 @@
     'Sport': String
   });
 
+  var userSchema = new Schema({
+      '_id': String,
+      'FirstName': String,
+      'LastName': String
+  })
+
   module.exports.eventSchema = eventSchema;
+  module.exports.userSchema = userSchema;
 })();
