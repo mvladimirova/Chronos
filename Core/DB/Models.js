@@ -14,7 +14,7 @@
       '_id': String,
       'FirstName': String,
       'LastName': String
-  })
+  });
 
   module.exports.eventSchema = eventSchema;
   module.exports.userSchema = userSchema;
