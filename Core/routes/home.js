@@ -3,5 +3,6 @@
  */
 
 exports.home = function(request, responce){
-    responce.send("This will be the index page");
+    var pathToClient = '../../../client/'
+    responce.render(pathToClient + 'index.html');
 };

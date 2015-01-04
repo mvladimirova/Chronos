@@ -1,21 +1,23 @@
 (function(){
   "use strict";
-  var Schema = require('mongoose').Schema;
+  var mongoose = redquire('mongoose'),
+      Schema = mongoose.Schema;
 
   var eventSchema = new Schema({
-    'Admin': [String],
-    'Name': String,
-    'StartDate': Date,
-    'EndDate': Date,
-    'Sport': String
+    'admin': [String],
+    'name': String,
+    'startDate': Date,
+    'endDate': Date
   });
 
   var userSchema = new Schema({
-      '_id': String,
-      'FirstName': String,
-      'LastName': String
+      userName: String,
+      name: {firstName: String, lastName: String},
+      email: String,
+      password: {password: String, hash: String},
+      createdOn: { type: Date, default: Date.now }
   });
 
-  module.exports.eventSchema = eventSchema;
-  module.exports.userSchema = userSchema;
+  module.exports.eventModel = mongoose.model('event', eventSchema);
+  module.exports.userModel = mongoose.model('user', userSchema);
 })();
