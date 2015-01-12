@@ -46,3 +46,11 @@ footer > p{
     top: 0px;
     height: 65px;
 }
+
+#log-in-btn:hover {
+    background-color: #F79D0C;
+}
+
+#register-btn:hover {
+    background-color: #F7B80C;
+}
