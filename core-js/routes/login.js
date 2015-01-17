@@ -20,7 +20,9 @@ exports.login = function(request, response){
 };
 
 exports.createNewUser = function(req, res){
-    var userObject = req.body['userObject'];
+    console.log(req.body);
+    var userObject = req.body.user;
+    console.log(userObject);
     if(typeof userObject === 'undefined') {
         res.send(500, 'Invalid user context');
     }
