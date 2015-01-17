@@ -4,24 +4,25 @@ var mongoose = redquire('mongoose'),
 
 var eventSchema = new Schema({
   admins: [Schema.Types.ObjectId],
-  name: String,
-  place: {
-      type: 'String',
-      coordinates:  [Number]
-  },
-  timeCard:{
-      start: Date,
-      end: Date,
-      Schedule: Object
-  },
-  subscribedUsers: [Schema.Types.ObjectId],
-  groupRestriction: [Schema.Types.Number],
-  Tags:[String]
+    name: String,
+    place: {
+    type: 'String',
+        coordinates:  [Number]
+},
+timeCard:{
+    start: Date,
+        end: Date,
+        Schedule: Object
+},
+subscribedUsers: [Schema.Types.ObjectId],
+    groupRestriction: [Schema.Types.Number],
+    Tags:[String]
 });
 
+// The admin property can be added only through the mongo terminal
 var userSchema = new Schema({
-  userName: {type: String, index: { unique: true }},
-  email:{ type: String, index: { unique: true } },
+  userName: {type: String, required: true, index: { unique: true }},
+  email:{ type: String, required: true, index: { unique: true } },
   name: {
       firstName: String,
       lastName: String
@@ -32,8 +33,7 @@ var userSchema = new Schema({
       hash: String
   },
   createdOn: { type: Date, default: Date.now },
-  groups: [Number],
-  admin: Boolean
+  groups: [Number]
 });
 
 var groupSchema = new Schema({

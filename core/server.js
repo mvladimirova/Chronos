@@ -22,7 +22,7 @@ app.get('/partials/:partialPath', function(req, res){
 });
 app.get('/', homeFunctionality.home);
 
-app.post('/createUser', loginFunctionality.createNewUser);
+app.post('/register', loginFunctionality.createNewUser);
 
 app.get('/login', loginFunctionality.login);
 

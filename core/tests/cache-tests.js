@@ -2,7 +2,7 @@
  * Created by Bozhidar on 25.12.2014 г..
  */
 var should = require('should'),
-    Cache = require('../cache-lib').Cache;
+    Cache = require('../coreUtilities/cache-lib').Cache;
 
 describe('DefaultCache', function(){
     var numberCache = new Cache(),

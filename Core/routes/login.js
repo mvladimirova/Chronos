@@ -2,9 +2,13 @@
  * Created by Bozhidar on 23.12.2014
  * Contains the login and create new user functionality
  */
+"use strict";
+var userEngine = require('../engine/core.userEngine'),
+    userValidation = require('../engine/core.engine.validations').userValidator;
+
 
 exports.login = function(request, response){
-    body = request.body;
+    var body = request.body;
     if(body['username'] != 'test' || body['password'] != 'Asd123'){
         response.send(404, "Invalid UserName or Password");
     }
@@ -16,14 +20,22 @@ exports.login = function(request, response){
 };
 
 exports.createNewUser = function(req, res){
-    body = req.body;
-    // For mocking purposes add scenarios here
-    if(body['username'] == 'test'){
-        res.send(500, "User name already taken!");
+    var userObject = req.body['userObject'];
+    if(typeof userObject === 'undefined') {
+        res.send(500, 'Invalid user context');
     }
-    if(body['email'] == 'test@outlook.com'){
-        res.send(500, "User name already taken!");
+    if(userValidation.validatePassword(userObject['password']) === false){
+        res.send(500, "Password is not secure enough!");
     }
+
+    userEngine.creteUser(userObject)
+        .then(function(context){
+            res.send(200, 'User registered successfully');
+        })
+        .catch(function(error){
+            res.send(500, 'User failed to register');
+        });
+
 
     res.send(201, "New user successfully created!");
 };
