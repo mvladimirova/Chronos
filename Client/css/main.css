@@ -1,0 +1,97 @@
+.info {
+    background-color: #F7820C
+}
+body{
+    background-color: #403F42;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+}
+
+header {
+    height: 65px;
+    overflow: hidden;
+}
+
+footer > p{
+    font-size: 188%;
+    margin-left: 37px;
+}
+
+#title {
+    font-size: xx-large;
+    margin-left: 37px;
+    margin-top: 8px;
+}
+
+#log-in-btn {
+    background-color: #F7820C;
+    border-color: #F7820C;
+    position: absolute;
+    right: 203px;
+    top: 0px;
+    height: 65px;
+}
+
+#register-btn {
+    background-color: #F7820C;
+    position: absolute;
+    right: 114px;
+    top: 0px;
+    height: 65px;
+}
+
+#log-in-btn:hover {
+    background-color: #F7B80C;
+}
+
+#register-btn:hover {
+    background-color: #F7B80C;
+}
+
+.modal-header{
+    background-color: #EBA13B;
+}
+
+.modal-body{
+    background-color: #D4D0CB;
+}
+
+.modal-footer{
+    background-color: #D4D0CB;
+}
+#login-modal-title{
+    margin-top: 4px;
+    margin-bottom: -2px;
+}
+form{
+    font-size: 19px;
+}
+
+#login-password{
+    margin-top: 5px;
+    margin-left: 13px;
+}
+
+#close-btn{
+    background-color: #B30404;
+    border-color: #B30404;
+    color: #ffffff
+}
+
+#register-modal-title{
+    margin-top: 4px;
+    margin-bottom: -2px;
+}
+
+#register-password{
+    margin-left: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
