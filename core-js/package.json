@@ -25,9 +25,11 @@
   "dependencies": {
     "body-parser": "^1.10.0",
     "connect": "^3.3.3",
+    "ejs": "^2.1.4",
     "express": "^4.10.6",
     "mocha": "^2.1.0",
     "mongoose": "^3.8.21",
+    "q": "^1.1.2",
     "should": "^4.4.1",
     "type-is": "^1.5.5",
     "underscore": "^1.7.0"
