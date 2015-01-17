@@ -17,5 +17,5 @@ Running the app:
   Chronos/Database/chronosDB
 2. Start MongoDB 
   Go to to the root folder and type mongod --config MongoConf.conf
-3. go to the core-js folder and start server.js
-  (either by node server.js or nodemon server.js)
+3. go to the core-js folder and start server.js (either by node server.js or nodemon server.js)
+
