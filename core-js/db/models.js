@@ -21,8 +21,8 @@ subscribedUsers: [Schema.Types.ObjectId],
 
 // The admin property can be added only through the mongo terminal
 var userSchema = new Schema({
-  userName: {type: String, required: true, index: { unique: true }},
-  email:{ type: String, required: true, index: { unique: true } },
+  userName: {type: String, required: true, unique: true },
+  email:{ type: String, required: true, unique: true },
   name: {
       firstName: String,
       lastName: String

@@ -29,6 +29,7 @@
     "mocha": "^2.1.0",
     "mongoose": "^3.8.21",
     "should": "^4.4.1",
+    "type-is": "^1.5.5",
     "underscore": "^1.7.0"
   }
 }
