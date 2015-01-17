@@ -48,9 +48,50 @@ footer > p{
 }
 
 #log-in-btn:hover {
-    background-color: #F79D0C;
+    background-color: #F7B80C;
 }
 
 #register-btn:hover {
     background-color: #F7B80C;
+}
+
+.modal-header{
+    background-color: #EBA13B;
+}
+
+.modal-body{
+    background-color: #D4D0CB;
+}
+
+.modal-footer{
+    background-color: #D4D0CB;
+}
+#login-modal-title{
+    margin-top: 4px;
+    margin-bottom: -2px;
+}
+form{
+    font-size: 19px;
+}
+
+#login-password{
+    margin-top: 5px;
+    margin-left: 13px;
+}
+
+#close-btn{
+    background-color: #B30404;
+    border-color: #B30404;
+    color: #ffffff
+}
+
+#register-modal-title{
+    margin-top: 4px;
+    margin-bottom: -2px;
+}
+
+#register-password{
+    margin-left: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
