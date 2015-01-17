@@ -1,5 +1,5 @@
 "use strict";
-var mongoose = redquire('mongoose'),
+var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
@@ -45,8 +45,8 @@ var gallerySchema = new Schema({
     event: Schema.Types.ObjectId,
     name: String,
     Split: {
-        partNumber: Nubmer,
-        TotalParts: Nubmer
+        partNumber: Number,
+        TotalParts: Number
     },
     Image: { data: Buffer, contentType: String }
 });

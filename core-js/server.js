@@ -14,7 +14,7 @@ var db = mongoose.connection;
 app.set('views', pathToRoot + '/client/views');
 app.engine('html', require('ejs').renderFile);
 app.use(jsonParser());
-app.use(express.static(pathToRoot + '/client'));
+app.use(express.static(pathToRoot + '/client-js'));
 
 
 app.get('/partials/:partialPath', function(req, res){

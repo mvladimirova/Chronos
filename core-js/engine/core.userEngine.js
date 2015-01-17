@@ -5,7 +5,7 @@
 "use strict";
 
 var userModel = require('../db/models').user,
-    security = require('core.userEngine.security'),
+    security = require('./core.userEngine.security'),
     q = require('q');
 
 exports.creteUser= function(userObject){
