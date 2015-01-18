@@ -3,7 +3,7 @@
  */
 "use strict";
 
-function userValidations() {}
+var userValidations = function() {};
 
 userValidations.validatePassword = function (password) {
     if (typeof password !== 'string') {
@@ -12,11 +12,11 @@ userValidations.validatePassword = function (password) {
     if (password.length < 6) {
         return false;
     }
-    
-    // test for lower case, upper case and digit 
-    var regEx = /^(?=.*[a-z])(?=.*[a-z])(?=.*\d)$.+/;
+
+    // test for lower case, upper case and digit
+    var regEx = /^(?=.*[a-z])(?=.*[a-z])(?=.*\d).+$/;
 
     return regEx.test(password);
 };
 
-exports.userValidator = userValidations;
+exports.userValidations = userValidations;

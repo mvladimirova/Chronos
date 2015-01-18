@@ -3,7 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     loginFunctionality = require('./routes/login'),
     homeFunctionality = require('./routes/home'),
-    jsonParser = require('body-parser').json;
+    bodyParser = require('body-parser');
 
 var pathToRoot = __dirname + '/../';
 
@@ -13,7 +13,7 @@ var db = mongoose.connection;
 
 app.set('views', pathToRoot + '/client/views');
 app.engine('html', require('ejs').renderFile);
-app.use(jsonParser());
+app.use(bodyParser.json());
 app.use(express.static(pathToRoot + '/client-js'));
 
 

@@ -4,7 +4,7 @@
  */
 "use strict";
 var userEngine = require('../engine/core.userEngine'),
-    userValidation = require('../engine/core.engine.validations').userValidator;
+    userValidations = require('../engine/core.engine.validations').userValidations;
 
 
 exports.login = function(request, response){
@@ -20,24 +20,22 @@ exports.login = function(request, response){
 };
 
 exports.createNewUser = function(req, res){
-    console.log(req.body);
     var userObject = req.body.user;
-    console.log(userObject);
+
     if(typeof userObject === 'undefined') {
-        res.send(500, 'Invalid user context');
+        res.status(500).send('Invalid user context');
     }
-    if(userValidation.validatePassword(userObject['password']) === false){
-        res.send(500, "Password is not secure enough!");
+
+    if(userValidations.validatePassword(userObject['password']) === false){
+        res.status(500).send("Password is not secure enough!");
     }
 
     userEngine.creteUser(userObject)
         .then(function(context){
-            res.send(200, 'User registered successfully');
+            console.log('I am not slow!');
+            res.status(200).send("New user successfully created!");
         })
         .catch(function(error){
-            res.send(500, 'User failed to register');
+            res.status(500).send('User failed to register');
         });
-
-
-    res.send(201, "New user successfully created!");
 };

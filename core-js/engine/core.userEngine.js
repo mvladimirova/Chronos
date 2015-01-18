@@ -8,22 +8,22 @@ var userModel = require('../db/models').user,
     security = require('./core.userEngine.security'),
     q = require('q');
 
-exports.creteUser= function(userObject){
+exports.creteUser = function(userObject){
     var deferred = q.defer();
-
-    security(userObject.password)
+    security.hashPassword(userObject['password'])
         .then(function(passwordObject){
-            userModel.create({
-                userName: userObject.userName,
-                email: userObject.email,
-                name: userObject.name,
+            var newUser = new userModel({
+                userName: userObject['userName'],
+                email: userObject['email'],
+                name: userObject['name'],
                 password: passwordObject,
                 groups: null
-            }).then(function(err, newUser){
+            });
+
+            newUser.save(function(err, newUser){
                 if(err){
                     deferred.reject(err);
                 }
-
                 deferred.resolve(newUser);
             })
         });
