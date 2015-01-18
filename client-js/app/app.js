@@ -2,15 +2,15 @@
  * Created by Bozhidar on 30.12.2014 г..
  */
 
-var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.bootstrap', 'app.services']);
+var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.bootstrap', 'app.services', 'ui.calendar']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     $locationProvider.html5Mode(true);
     $routeProvider
-    .when('/', {templateUrl:'/' ,controller:'mainPage'});
+    .when('/', {templateUrl:'/' ,controller:'pageHeader'});
 }])
 
-.controller('mainPage', function($scope, $modal, $log){
+.controller('pageHeader', function($scope, $modal, $log){
     $scope.title = "Chronos - Event Planer";
 
     $scope.openLogIn = function(size){
@@ -56,4 +56,21 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         RegisterService.checkUser($scope.newUser);
         $modalInstance.dismiss('cancel');
     }
+})
+
+.controller('CalendarController', function($scope){
+    $scope.uiConfig = {
+        calendar:{
+            height: 450,
+            editable: true,
+            header: {
+                left: 'month basicWeek basicDay agendaWeek agendaDay',
+                center: 'title',
+                right: 'today prev,next'
+            },
+            dayClick: $scope.alertEventOnClick,
+            eventDrop: $scope.alertOnDrop,
+            eventResize: $scope.alertOnResize
+        }
+    };
 });
