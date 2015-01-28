@@ -6,7 +6,9 @@
 
 var userModel = require('../db/models').user,
     security = require('./core.userEngine.security'),
-    q = require('q');
+    q = require('q'),
+    uuid = require('uuid');
+
 
 exports.creteUser = function(userObject){
     var deferred = q.defer();
@@ -30,3 +32,47 @@ exports.creteUser = function(userObject){
 
     return deferred.promise;
 };
+
+
+var login = function(loginInformation, client){
+    var deferred = q.defer();
+
+    userModel.findOne({$or:[{userName: loginInformation.userName}, {email: loginInformation.userName}]})
+        .exec()
+        .then(function(document){
+
+        });
+
+};
+
+var cacheIfValid = function (document,client){
+    var deferred = q.defer();
+
+    security.validatePassword(loginInformation.password, document.password.password, password.password.salt)
+        .then(function(result){
+            if(result === false){
+                deferred.reject(new Error('Invalid user name or password'))
+            }
+
+            client.
+            client.set()
+        });
+
+    deferred.promise;
+};
+
+var isLogedIn = function(token, client){
+    var deferred = q.defer();
+
+    client.get(token, function(err, reply){
+        if(error){
+            deferred.reject(error);
+        } else{
+          deferred.resolve(reply);
+        }
+    });
+
+    return deferred.promise;
+};
+
+exports.isLogedIn = isLogedIn;
