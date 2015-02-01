@@ -24,6 +24,10 @@ exports.hashPassword = function(password){
 exports.validatePassword = function(password, passwordHash, passwordSalt) {
     var deferred = q.Defer();
 
+    if(typeof password === null || typeof password === 'undefined'){
+        deferred.resolve(false);
+    }
+
     crypto.pbkdf2(password, passwordSalt, 512, keylen, function(err, hashedPassword){
         if(err){
             deferred.reject(err);
