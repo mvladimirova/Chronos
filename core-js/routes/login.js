@@ -35,7 +35,7 @@ exports.createNewUser = function(req, res){
         res.status(500).send("Password is not secure enough!");
     }
 
-    userEngine.creteUser(userObject)
+    userEngine.createUser(userObject)
         .then(function(context){
             res.status(200).send("New user successfully created!");
         })
