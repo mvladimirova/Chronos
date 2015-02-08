@@ -6,23 +6,24 @@
 var crypto = require('crypto'),
     q = require('q');
 
+var keylen = 16;
+
 exports.hashPassword = function(password){
     var deferred = q.defer(),
-        keylen = 16,
-        salt = crypto.randomBytes(256).toString('base64');
+        salt = crypto.randomBytes(16).toString('base64');
 
     crypto.pbkdf2(password, salt, 512, keylen, function(err, hashedPassword){
         if(err){
             deferred.reject(err);
         }
-        deferred.resolve({password: hashedPassword, salt: salt});
+        deferred.resolve({password: hashedPassword.toString('base64'), salt: salt});
     });
 
     return deferred.promise;
 };
 
 exports.validatePassword = function(password, passwordHash, passwordSalt) {
-    var deferred = q.Defer();
+    var deferred = q.defer();
 
     if(typeof password === null || typeof password === 'undefined'){
         deferred.resolve(false);
@@ -32,7 +33,8 @@ exports.validatePassword = function(password, passwordHash, passwordSalt) {
         if(err){
             deferred.reject(err);
         }
-        deferred.resolve(hashedPassword === passwordHash);
+
+        deferred.resolve(hashedPassword.toString('base64') === passwordHash);
     });
 
     return deferred.promise;

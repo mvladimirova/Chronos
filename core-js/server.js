@@ -4,9 +4,13 @@ var express = require('express'),
     loginFunctionality = require('./routes/login'),
     homeFunctionality = require('./routes/home'),
     bodyParser = require('body-parser'),
-    redis= require('redis');
+    redis= require('redis'),
+    expressJwt = require('express-jwt'),
+    fs = require('fs');
 
-var pathToRoot = __dirname + '/../';
+var pathToRoot = __dirname + '/../',
+    configFile = JSON.parse(fs.readFileSync('server.json', 'utf8'));
+    secret = configFile.secret;
 
 // Connect to the database
 mongoose.connect('mongodb://localhost/chronosDB');
@@ -19,10 +23,13 @@ redisClient.on("error", function(err){
 });
 
 
+// Configurations and middleware
 app.set('views', pathToRoot + '/client/views');
 app.engine('html', require('ejs').renderFile);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(pathToRoot + '/client-js'));
+app.use('/', expressJwt({secret: secret}));
 
 
 app.get('/partials/:partialPath', function(req, res){
@@ -32,7 +39,7 @@ app.get('/', homeFunctionality.home);
 
 app.post('/register', loginFunctionality.createNewUser);
 
-app.get('/login', loginFunctionality.login);
+app.get('/login', loginFunctionality.login(redisClient));
 
 
 var port = 1337;
