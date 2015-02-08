@@ -3,18 +3,18 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
-  admins: [Schema.Types.ObjectId],
+    admins: [Schema.Types.ObjectId],
     name: String,
     place: {
-    type: 'String',
+        type: 'String',
         coordinates:  [Number]
-},
-timeCard:{
-    start: Date,
+    },
+    timeCard:{
+        start: Date,
         end: Date,
         Schedule: Object
-},
-subscribedUsers: [Schema.Types.ObjectId],
+    },
+    subscribedUsers: [Schema.Types.ObjectId],
     groupRestriction: [Schema.Types.Number],
     Tags:[String]
 });

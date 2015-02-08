@@ -32,7 +32,6 @@ exports.createNewUser = function(req, res){
 
     userEngine.creteUser(userObject)
         .then(function(context){
-            console.log('I am not slow!');
             res.status(200).send("New user successfully created!");
         })
         .catch(function(error){

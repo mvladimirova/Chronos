@@ -3,8 +3,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     loginFunctionality = require('./routes/login'),
     homeFunctionality = require('./routes/home'),
-    bodyParser = require('body-parser'),
-    redis= require('redis');
+    bodyParser = require('body-parser');
+    //redis= require('redis');
 
 var pathToRoot = __dirname + '/../';
 
@@ -12,11 +12,11 @@ var pathToRoot = __dirname + '/../';
 mongoose.connect('mongodb://localhost/chronosDB');
 var db = mongoose.connection;
 
-// Connect to redis
-var redisClient = redis.createClient();
-redisClient.on("error", function(err){
-    console.log("An error occurred with redis:" + err);
-});
+//// Connect to redis
+//var redisClient = redis.createClient();
+//redisClient.on("error", function(err){
+//    console.log("An error occurred with redis:" + err);
+//});
 
 
 app.set('views', pathToRoot + '/client/views');
