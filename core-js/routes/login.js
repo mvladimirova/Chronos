@@ -14,7 +14,7 @@ exports.login = function(redisClient, secret){
             .then(function(token){
                 res.json({ token: token });
                 res.status(200);
-                res.send;
+                res.send(token);
             })
             .catch(function(err){
                 res.status(401);

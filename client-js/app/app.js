@@ -4,8 +4,9 @@
 
 var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.bootstrap', 'app.services']);
 
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
     $locationProvider.html5Mode(true);
+    $httpProvider.interceptors.push('authInterceptor');
     $routeProvider
     .when('/', {templateUrl:'/' ,controller:'pageHeader'});
 }])
@@ -36,13 +37,19 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     };
     $scope.logIn = function(){
         $http
-            .post('/login', $scope.user)
+            .get('/login', $scope.user)
             .success(function(data, status, headers, config){
+                $window.sessionStorage.token = data.token;
+                console.log('Welcome!');
+            })
+            .error(function(data, status, headers, config){
                 delete $window.sessionStorage.token;
+
+                console.log("Error");
             });
         console.log($scope.user);
         $modalInstance.dismiss('cancel');
-    }
+    };
 })
 
 .controller('RegisterController', function($scope, $modalInstance, RegisterService){
@@ -125,4 +132,21 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             $scope.weeks = weeks;
         }
 
+})
+.factory('authInterceptor', function($rootScope, $q, $window){
+    return {
+        request: function(config){
+            config.headers = config.headers || {};
+            if($window.sessionStorage.token){
+                config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+            }
+            return config;
+        },
+        response: function(response){
+            if(response.status === 401){
+                console.log("Error");
+            }
+            return response || $q.when(response);
+        }
+    }
 });

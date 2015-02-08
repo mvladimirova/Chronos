@@ -12,7 +12,7 @@ var userModel = require('../db/models').user,
 
 var expirationTime = 1200,
     configFile = JSON.parse(fs.readFileSync('server.json', 'utf8')),
-    secret = configFile.secret;;
+    secret = configFile.secret;
 
 exports.createUser = function(userObject){
     var deferred = q.defer();
@@ -94,7 +94,7 @@ var cacheIfValid = function (document, loginInformation, redisClient, token){
 
 var createToken = function(profileInformation){
     return jwt.sign(profileInformation, secret, { expiresInMinutes: expirationTime });
-}
+};
 
 var isLogedIn = function(token, redisClient){
     var deferred = q.defer();

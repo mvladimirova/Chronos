@@ -21,8 +21,8 @@
 
         <!--</div>-->
     <!--</div>-->
-    <div id="calendar" ng-controller="CalendarController" class="table-responsive">
-        <table id="calendar-table" class="table table-bordered">
+    <div id="calendar" ng-controller="CalendarController">
+        <table id="calendar-table" class="table table-bordered table-responsive">
             <tr class="months">
                 <td colspan="2" class="other"><a ng-click="previous_month()">{{date.clone().subtract(1, 'months').format('MMMM')}}</a></td>
                 <td colspan="3">{{date.format('MMMM YYYY')}}</td>
