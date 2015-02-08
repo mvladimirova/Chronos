@@ -30,7 +30,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(pathToRoot + '/client-js'));
-app.use('/', expressJwt({secret: secret}));
+app.use('/', expressJwt({secret: secret, credentialsRequired: false}));
 
 
 app.get('/partials/:partialPath', function(req, res){
@@ -40,7 +40,7 @@ app.get('/', homeFunctionality.home);
 
 app.post('/register', loginFunctionality.createNewUser);
 
-app.get('/login', loginFunctionality.login(redisClient));
+app.post('/login', loginFunctionality.login(redisClient, secret));
 
 
 var port = 1337;

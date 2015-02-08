@@ -71,7 +71,7 @@ var cacheIfValid = function (document, loginInformation, redisClient, token){
                 lastName: document.name.lastName,
                 userName: document.userName,
                 email: document.email
-            }
+            };
 
             var newToken = createToken(profile);
             redisClient.hmset(newToken, profile, function(err){
@@ -89,7 +89,7 @@ var cacheIfValid = function (document, loginInformation, redisClient, token){
             deferred.reject(error);
         });
 
-    deferred.promise;
+    return deferred.promise;
 };
 
 var createToken = function(profileInformation){

@@ -31,23 +31,24 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 })
 
 .controller('LoginController', function($scope, $http, $window, $modalInstance){
-    $scope.user = {userName: '', password: ''};
+    $scope.loginInformation = {userName: '', password: ''};
+
+    var data = {
+        loginInformation: $scope.loginInformation
+    };
+
     $scope.closeModal = function(){
         $modalInstance.dismiss('cancel');
     };
     $scope.logIn = function(){
         $http
-            .get('/login', $scope.user)
+            .post('/login', data)
             .success(function(data, status, headers, config){
                 $window.sessionStorage.token = data.token;
-                console.log('Welcome!');
             })
             .error(function(data, status, headers, config){
                 delete $window.sessionStorage.token;
-
-                console.log("Error");
             });
-        console.log($scope.user);
         $modalInstance.dismiss('cancel');
     };
 })
@@ -111,7 +112,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
                     today.month() == date.month() &&
                     today.date() == date.date(),
                     number: date.date(),
-                    date: date.clone(),
+                    date: date.clone()
                     //tasks: Task.query_for_date({date: date.format('YYYY-MM-DD')})
                 });
                 date.add(1, 'days');
