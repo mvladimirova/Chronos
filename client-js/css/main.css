@@ -3,6 +3,7 @@
 }
 body{
     background-color: #403F42;
+    /*background-color: #7A7A7A;*/
 }
 
 footer {
@@ -95,3 +96,19 @@ form{
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+#register-email{
+    margin-left: 43px;
+    margin-top: 5px
+}
+
+/*#calendar{*/
+    /*background-color: #ffffff;*/
+    /*height: 299px;*/
+/*}*/
+
+#calendar-table{
+    height: 590px;
+    width: 100%;
+}
+

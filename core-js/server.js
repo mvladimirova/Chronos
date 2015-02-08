@@ -8,6 +8,7 @@ var express = require('express'),
     expressJwt = require('express-jwt'),
     fs = require('fs');
 
+
 var pathToRoot = __dirname + '/../',
     configFile = JSON.parse(fs.readFileSync('server.json', 'utf8'));
     secret = configFile.secret;

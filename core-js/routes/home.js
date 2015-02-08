@@ -3,6 +3,6 @@
  */
 
 exports.home = function(request, responce){
-    var pathToClient = '../../client-js/'
+    var pathToClient = '../../client-js/';
     responce.render(pathToClient + 'index.html');
 };

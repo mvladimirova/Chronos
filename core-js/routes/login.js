@@ -14,7 +14,7 @@ exports.login = function(redisClient, secret){
             .then(function(token){
                 res.json({ token: token });
                 res.status(200);
-                res.send;
+                res.send(token);
             })
             .catch(function(err){
                 res.status(401);
@@ -36,7 +36,6 @@ exports.createNewUser = function(req, res){
 
     userEngine.creteUser(userObject)
         .then(function(context){
-            console.log('I am not slow!');
             res.status(200).send("New user successfully created!");
         })
         .catch(function(error){
