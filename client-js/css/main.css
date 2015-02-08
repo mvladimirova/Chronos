@@ -7,7 +7,7 @@ body{
 }
 
 footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -40,6 +40,16 @@ footer > p{
     height: 65px;
 }
 
+#log-out-btn {
+    background-color: #F7820C;
+    border-color: #F7820C;
+    position: absolute;
+    right: 203px;
+    top: 0px;
+    height: 65px;
+    display: none;
+}
+
 #register-btn {
     background-color: #F7820C;
     position: absolute;
@@ -49,6 +59,10 @@ footer > p{
 }
 
 #log-in-btn:hover {
+    background-color: #F7B80C;
+}
+
+#log-out-btn:hover {
     background-color: #F7B80C;
 }
 
@@ -92,13 +106,11 @@ form{
 }
 
 #register-password{
-    margin-left: 13px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 #register-email{
-    margin-left: 43px;
     margin-top: 5px
 }
 
@@ -108,7 +120,7 @@ form{
 /*}*/
 
 #calendar-table{
-    height: 590px;
+    height: 560px;
     width: 100%;
 }
 
