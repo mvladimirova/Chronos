@@ -27,10 +27,9 @@ var userSchema = new Schema({
       firstName: String,
       lastName: String
   },
-
   password: {
       password: String,
-      hash: String
+      salt: String
   },
   createdOn: { type: Date, default: Date.now },
   groups: [Number]

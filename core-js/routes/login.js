@@ -6,16 +6,20 @@
 var userEngine = require('../engine/core.userEngine'),
     userValidations = require('../engine/core.engine.validations').userValidations;
 
+exports.login = function(redisClient, secret){
+    return function(req, res){
+        var loginInformation = req.body.loginInformation;
 
-exports.login = function(request, response){
-    var body = request.body;
-    if(body['username'] != 'test' || body['password'] != 'Asd123'){
-        response.send(404, "Invalid UserName or Password");
-    }
-    else{
-        response.body = {FirstName: 'Zaphod', LastName:"Beeblebrox"};
-        response.status(200);
-        response.send();
+        userEngine.login(loginInformation, redisClient)
+            .then(function(token){
+                res.json({ token: token });
+                res.status(200);
+                res.send;
+            })
+            .catch(function(err){
+                res.status(401);
+                res.send(err);
+            });
     }
 };
 
