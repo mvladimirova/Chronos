@@ -15,12 +15,13 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 .controller('pageHeader', function($scope, $modal, $log){
     $scope.title = "Chronos - Event Planer";
 
-    $scope.openLogIn = function(size){
+    $scope.openLogIn = function($event,size){
         var modal = $modal.open({
             templateUrl: 'logIn.html',
             controller: 'LoginController',
             size: size
-        })
+        });
+
     };
     $scope.openRegister = function(size){
         var modal = $modal.open({
@@ -28,7 +29,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
             controller: 'RegisterController',
             size: size
         })
-    }
+    };
 })
 
 

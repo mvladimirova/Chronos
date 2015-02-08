@@ -40,6 +40,16 @@ footer > p{
     height: 65px;
 }
 
+#log-out-btn {
+    background-color: #F7820C;
+    border-color: #F7820C;
+    position: absolute;
+    right: 203px;
+    top: 0px;
+    height: 65px;
+    display: none;
+}
+
 #register-btn {
     background-color: #F7820C;
     position: absolute;
@@ -49,6 +59,10 @@ footer > p{
 }
 
 #log-in-btn:hover {
+    background-color: #F7B80C;
+}
+
+#log-out-btn:hover {
     background-color: #F7B80C;
 }
 

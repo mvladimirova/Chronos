@@ -25,5 +25,15 @@ login.controller('LoginController', function($scope, $http, $window, $modalInsta
             });
         console.log($scope.loginInformation);
         $modalInstance.dismiss('cancel');
+        var loginButton = $('#log-in-btn');
+        loginButton[0].style.display = "none";
+
+        var registerButton = $('#register-btn');
+        registerButton[0].style.display = "none";
+
+        var logoutButton = $('#log-out-btn');
+        logoutButton[0].style.display = "block";
+
+        
     };
 });
