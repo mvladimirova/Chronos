@@ -7,7 +7,7 @@ body{
 }
 
 footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -92,13 +92,11 @@ form{
 }
 
 #register-password{
-    margin-left: 13px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 #register-email{
-    margin-left: 43px;
     margin-top: 5px
 }
 
@@ -108,7 +106,7 @@ form{
 /*}*/
 
 #calendar-table{
-    height: 590px;
+    height: 560px;
     width: 100%;
 }
 

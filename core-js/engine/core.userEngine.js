@@ -89,7 +89,7 @@ var cacheIfValid = function (document, loginInformation, redisClient, token){
             deferred.reject(error);
         });
 
-    deferred.promise;
+    return deferred.promise;
 };
 
 var createToken = function(profileInformation){

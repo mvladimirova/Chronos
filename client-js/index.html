@@ -11,16 +11,11 @@
         <div ng-controller="pageHeader">
             <p id="title">{{title}}</p>
             <button id="log-in-btn" type="button" class="btn btn-default pressed" ng-click="openLogIn()">Log In</button>
-            <button id="register-btn" type="button" class="btn btn-dafault" ng-click="openRegister('lg')"> Register</button>
+            <button id="register-btn" type="button" class="btn btn-dafault" ng-click="openRegister()"> Register</button>
 
         </div>
     </header>
 
-    <!--<div id="calendar" ng-controller="CalendarController">-->
-        <!--<div ui-calendar="uiConfig.calendar" ng-model="eventSources">-->
-
-        <!--</div>-->
-    <!--</div>-->
     <div id="calendar" ng-controller="CalendarController">
         <table id="calendar-table" class="table table-bordered table-responsive">
             <tr class="months">
@@ -58,9 +53,9 @@
         <div class="modal-body">
             <form id="login-form">
                 User Name:
-                <input type="text" placeholder="User Name" ng-model="user.userName" ng-value="userName"><br>
+                <input type="text" placeholder="User Name" ng-model="loginInformation.userName" ng-value="userName"><br>
                 Password:
-                <input id="login-password" type="password" placeholder="Password" ng-model="user.password" ng-value="password"><br>
+                <input id="login-password" type="password" placeholder="Password" ng-model="loginInformation.password" ng-value="password"><br>
             </form>
         </div>
 
@@ -75,17 +70,11 @@
         </div>
         <div class="modal-body">
             <form id="register-form">
-                User Name:
                 <input type="text" placeholder="User Name" ng-model="newUser.userName" ng-value="userName">
-                First Name:
                 <input type="text" placeholder="First Name" ng-model="newUser.firstName" ng-value="firstName"><br>
-                Password:
                 <input type="password" id="register-password" placeholder="Password" ng-model="newUser.password" ng-value="password">
-                Last Name:
                 <input type="text" placeholder="Last Name" ng-model="newUser.lastName" ng-value="lastName"><br>
-                Confirm Password:
                 <input type="password" id="confirm-password" placeholder="Re-enter Password" ng-model="newUser.confirmPassword" ng-value="confirmPassword"><br>
-                E-mail:
                 <input type="email" id="register-email" placeholder="E-mail" ng-model="newUser.email" ng-value="email">
             </form>
         </div>
@@ -98,16 +87,14 @@
     <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
-    <!--<script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>-->
-    <!--<script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.js"></script>-->
-    <!--<script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>-->
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <!--<script type="text/javascript" src="controllers/homePageController.js"></script>-->
     <script type="text/javascript" src="app/app.js"></script>
-    <!--<script type="text/javascript" src="app/calendar_directive.js"></script>-->
+    <script type="text/javascript" src="controllers/login.js"></script>
+    <script type="text/javascript" src="controllers/register.js"></script>
+    <script type="text/javascript" src="controllers/calendar.js"></script>
     <script type="text/javascript" src="services/registerService.js"></script>
 </body>
 </html>
