@@ -8,6 +8,8 @@ var userEngine = require('../engine/core.userEngine'),
 
 exports.login = function(redisClient, secret){
     return function(req, res){
+        console.log(req.body);
+        console.log(req.headers);
         var loginInformation = req.body.loginInformation;
         userEngine.login(loginInformation, redisClient)
             .then(function(token){
