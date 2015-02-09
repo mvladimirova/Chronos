@@ -34,6 +34,6 @@ login.controller('LoginController', function($scope, $http, $window, $modalInsta
         var logoutButton = $('#log-out-btn');
         logoutButton[0].style.display = "block";
 
-        
+
     };
 });
