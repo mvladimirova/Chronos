@@ -17,7 +17,6 @@ register.controller('RegisterController', function($scope, $modalInstance, Regis
         $modalInstance.dismiss('cancel');
     };
     $scope.register = function(){
-        console.log($scope.newUser);
         var checked = RegisterService.checkUser($scope.newUser);
         if(checked) {
             RegisterService.createUser($scope.newUser);

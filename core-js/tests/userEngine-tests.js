@@ -39,17 +39,17 @@ var testUser = {
 
 // Mongo and Redis should be running
 // we will asume that you have the above test user added to the collection
-describe('TestUserLogin', function(){
-    it('testLogin', function(){
+//describe('TestUserLogin', function(){
+ //   it('testLogin', function(){
         //userEngine.login(testUser, redisClient)
          //   .then(function(response){
-                userEngine.isLogedIn('072f4357-b689-48f1-ad25-d8278e8322a7', redisClient)
-                .then(function(res){
-                        console.log(res);
-                    res.should.be.ok;
-                    done();
-                })
+        //        userEngine.isLogedIn('072f4357-b689-48f1-ad25-d8278e8322a7', redisClient)
+        //        .then(function(res){
+        //                console.log(res);
+        //            res.should.be.ok;
+         //           done();
+         //       })
 
           //  })
-    })
-});
+  // })
+//});

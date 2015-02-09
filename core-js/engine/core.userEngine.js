@@ -31,7 +31,7 @@ exports.createUser = function(userObject){
                     deferred.reject(err);
                 }
                 deferred.resolve(newUser);
-            })
+            });
         });
 
     return deferred.promise;
@@ -39,7 +39,7 @@ exports.createUser = function(userObject){
 
 // The function checks the user information and it is valid it returns the
 // token for the cache if not it returns null
-var login = function(loginInformation, redisClient, jwt){
+var login = function(loginInformation, redisClient){
     var deferred = q.defer();
 
     userModel.findOne({$or:[{userName: loginInformation.userName}, {email: loginInformation.userName}]})
@@ -57,7 +57,7 @@ var login = function(loginInformation, redisClient, jwt){
     return deferred.promise;
 };
 
-var cacheIfValid = function (document, loginInformation, redisClient, token){
+var cacheIfValid = function (document, loginInformation, redisClient){
     var deferred = q.defer();
 
     security.validatePassword(loginInformation.password, document.password.password, document.password.salt)
