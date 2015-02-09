@@ -40,7 +40,7 @@ calendar.controller('CalendarController', function($scope){
                 today.month() == date.month() &&
                 today.date() == date.date(),
                 number: date.date(),
-                date: date.clone(),
+                date: date.clone()
                 //tasks: Task.query_for_date({date: date.format('YYYY-MM-DD')})
             });
             date.add(1, 'days');

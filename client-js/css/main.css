@@ -57,6 +57,18 @@ footer > p{
     top: 0px;
     height: 65px;
 }
+#group-btn {
+    background-color: #F7820C;
+    border-color: #F7820C;
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    height: 65px
+}
+
+#group-btn:hover{
+    background-color: #F7B80C;
+}
 
 #log-in-btn:hover {
     background-color: #F7B80C;
@@ -124,3 +136,6 @@ form{
     width: 100%;
 }
 
+#group-off-canvas{
+
+}

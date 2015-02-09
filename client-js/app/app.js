@@ -3,7 +3,7 @@
  */
 
 var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.bootstrap', 'app.services', 'app.login', 'app.register',
-    'calendar']);
+    'calendar', 'ngAside']);
 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
     $locationProvider.html5Mode(true);
@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         .when('/', {templateUrl:'/' ,controller:'pageHeader'});
 }])
 
-    .controller('pageHeader', function($scope, $modal, $log){
+    .controller('pageHeader', function($scope, $modal, $log, $aside){
         $scope.title = "Chronos - Event Planer";
 
         $scope.openLogIn = function($event,size){
@@ -30,6 +30,17 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
                 size: size
             })
         };
+        $scope.showGroups = function(size){
+            var aside = $aside.open({
+                templateUrl: 'groups.html',
+                controller: 'AsideController',
+                placement: 'right',
+                size: size
+            });
+        }
+    })
+    .controller('AsideController', function($scope, $modalInstance){
+        $scope.text = "Something"
     })
 
     .factory('authInterceptor', function($rootScope, $q, $window){
