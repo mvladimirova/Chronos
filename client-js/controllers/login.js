@@ -16,14 +16,10 @@ login.controller('LoginController', function($scope, $http, $window, $modalInsta
             .post('/login', data)
             .success(function(data, status, headers, config){
                 $window.sessionStorage.token = data.token;
-                console.log('Welcome!');
             })
             .error(function(data, status, headers, config){
                 delete $window.sessionStorage.token;
-
-                console.log("Error");
             });
-        console.log($scope.loginInformation);
         $modalInstance.dismiss('cancel');
         var loginButton = $('#log-in-btn');
         loginButton[0].style.display = "none";

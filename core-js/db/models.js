@@ -36,8 +36,8 @@ var userSchema = new Schema({
 });
 
 var groupSchema = new Schema({
-    _id: Number,
-    name: String
+    _id: String,
+    users: [String]
 });
 
 var gallerySchema = new Schema({

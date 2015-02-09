@@ -6,7 +6,7 @@
 
 var eventModel = require('../db/models').event,
     q = require('q'),
-    security = require('./core.eventEngine.security');
+    security = require('./core.eventEngine.validations.js');
 
 exports.createEvent = function(eventObject){
     var deferred = q.defer();

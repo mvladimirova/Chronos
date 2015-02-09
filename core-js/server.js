@@ -40,7 +40,7 @@ app.get('/', homeFunctionality.home);
 
 app.post('/register', loginFunctionality.createNewUser);
 
-app.post('/login', loginFunctionality.login(redisClient,secret));
+app.post('/login', loginFunctionality.login(redisClient, secret));
 
 
 var port = 1337;
